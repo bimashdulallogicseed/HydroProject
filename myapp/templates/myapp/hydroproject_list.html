@@ -1,0 +1,31 @@
+ <!DOCTYPE html>
+<html>
+<head>
+    <title>Hydro Projects</title>
+</head>
+<body>
+    <h1>Hydro Projects</h1>
+    <table>
+        <tr>
+            <th>Name</th>
+            <th>Capacity</th>
+            <th>Location</th>
+            <th>Actions</th>
+        </tr>
+        {% for project in projects %}
+        <tr>
+            <td>{{ project.Name }}</td>
+            <td>{{ project.Capacity }}</td>
+            <td>{{ project.Location }}</td>
+            <td>
+                <a href="{% url 'hydroproject_update' forloop.counter0 %}">Edit</a>
+                <a href="{% url 'hydroproject_delete' forloop.counter0 %}">Delete</a>
+            </td>
+        </tr>
+        {% endfor %}
+    </table>
+    <a href="{% url 'hydroproject_create' %}">Add New Project</a>
+</body>
+</html>  
+
+
